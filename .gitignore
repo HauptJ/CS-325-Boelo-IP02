@@ -1,5 +1,7 @@
-# Ignore files automatically generated on save by Visual Studio.
+# Ignore non-source files automatically generated on save by Visual Studio.
 *.sln
+*.csproj
+*.config
 **/.vs/
 **/obj/
 **/bin/
