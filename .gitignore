@@ -1,0 +1,6 @@
+# Ignore files automatically generated on save by Visual Studio.
+*.sln
+**/.vs/
+**/obj/
+**/bin/
+**/Properties/
