@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 
-namespace IP1
+namespace IP02
 {
     static class Program
     {
@@ -26,6 +26,7 @@ namespace IP1
             do
             {
                 // Creating and running input form.
+
                 CheckInputForm InForm = new CheckInputForm();
                 Application.Run(InForm);
                 // Code doesn't advance until the user successfully enters a check. 
