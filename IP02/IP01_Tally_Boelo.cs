@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IP1
+namespace IP02
 {
     class IP01_Tally_Boelo
     {
