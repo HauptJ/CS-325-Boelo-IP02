@@ -27,7 +27,7 @@ namespace IP02
             {
                 // Creating and running input form.
 
-                CheckInputForm InForm = new CheckInputForm();
+                IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo();
                 Application.Run(InForm);
                 // Code doesn't advance until the user successfully enters a check. 
                 // So beyond this point, assume a check has been entered successfully. 
@@ -60,7 +60,7 @@ namespace IP02
                 string dollarAmountAsTxt = proc.PrintString();
 
                 // Creates and runs the output gui
-                IP01_OutputGUI_Boelo output = new IP01_OutputGUI_Boelo();
+                OutputGUI output = new OutputGUI();
 
                 output.displayCheck(CheckTally.getNumChecks(), InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
 
