@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 // A Double over fifteen characters not counting the decimal will start to round or get ride of the value affter the decimal.
 
-namespace IP1
+namespace IP02
 {
     class IP01_InputProcessor_Boelo
     {
