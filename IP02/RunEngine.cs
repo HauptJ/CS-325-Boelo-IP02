@@ -1,14 +1,26 @@
-﻿var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
-    typeof(IP02_CheckIO_Boelo),
-    typeof(IP02_DepositIO_Boelo));
+﻿using FileHelpers;
+using System;
 
-engine.RecordSelector = new RecordTypeSelector(CustomSelector);
+namespace IP02 {
+    public class RunEngine
+    {
+        Selector CustomSelector = new Selector();
+        public void test()
+        {
+            var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
+                typeof(IP02_CheckIO_Boelo),
+                typeof(IP02_DepositIO_Boelo));
 
-//input file
-var res = engine.ReadFile("checkbook.cbk");
+            engine.RecordSelector = new RecordTypeSelector(CustomSelector.CustomSelector);
 
-/// to Write use:
-engine.WriteFile("checkbook.cbk", res);
+            //input file
+            var res = engine.ReadFile("checkbook.cbk");
 
-foreach (var rec in res)
-    Console.WriteLine(rec.ToString());
+            /// to Write use:
+            engine.WriteFile("checkbook.cbk", res);
+
+            foreach (var rec in res)
+                Console.WriteLine(rec.ToString());
+        }
+    }
+}

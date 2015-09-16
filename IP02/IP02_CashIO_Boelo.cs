@@ -1,10 +1,14 @@
-﻿[DelimitedRecord(";")]
-public class IP02_CashIO_Boelo : IP02_TransactionsIO_Boelo
+﻿using FileHelpers;
+namespace IP02
 {
-    public string checkType = "CASH";
-
-    public override string ToString()
+    [DelimitedRecord(";")]
+    public class IP02_CashIO_Boelo : IP02_Transactions_Boelo
     {
-        return "CASH: \n" + transDate + " , " + checkType + " , " + amount + " , " + checkType + " , " + memo + " , " + newBalance + " \n ";
+        public string checkType = "CASH";
+
+        public override string ToString()
+        {
+            return "CASH: \n" + transDate + " , " + checkType + " , " + amount + " , " + checkType + " , " + memo + " , " + newBalance + " \n ";
+        }
     }
 }

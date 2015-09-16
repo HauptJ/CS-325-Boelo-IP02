@@ -32,6 +32,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileHelpers">
+      <HintPath>Lib\net45\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers.ExcelNPOIStorage">
+      <HintPath>Lib\net45\FileHelpers.ExcelNPOIStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers.ExcelStorage">
+      <HintPath>Lib\net45\FileHelpers.ExcelStorage.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,18 +56,24 @@
   <ItemGroup>
     <Compile Include="IP01_InputProcessor_Boelo.cs" />
     <Compile Include="IP01_Tally_Boelo.cs" />
+    <Compile Include="IP02_CashIO_Boelo.cs" />
     <Compile Include="IP02_Checkbook_Boelo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IP02_CheckIO_Boelo.cs" />
+    <Compile Include="IP02_DepositIO_Boelo.cs" />
     <Compile Include="IP02_InputForm_Boelo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IP02_OutputGUI_Boelo.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="IP02_TransactionsIO_Boelo.cs" />
     <Compile Include="OutputGUI.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunEngine.cs" />
+    <Compile Include="Selector.cs" />
     <EmbeddedResource Include="IP02_Checkbook_Boelo.resx">
       <DependentUpon>IP02_Checkbook_Boelo.cs</DependentUpon>
     </EmbeddedResource>

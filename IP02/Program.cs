@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
+using FileHelpers;
 
 namespace IP02
 {
@@ -30,6 +31,7 @@ namespace IP02
                 Application.Run(checkBook);
             do
             {
+                IP02_Transactions_Boelo tra = new IP02_Transactions_Boelo();
                 IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
                 InForm.showForm();
                 // Code doesn't advance until the user successfully enters a check. 

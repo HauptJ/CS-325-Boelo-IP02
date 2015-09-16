@@ -1,13 +1,17 @@
-﻿[DelimitedRecord(";")]
-public class IP02_Transactions_Boelo
+﻿using FileHelpers;
+namespace IP02
 {
-    public string transType;
+    [DelimitedRecord(";")]
+    public class IP02_Transactions_Boelo
+    {
+        public string transType;
 
-    public string transDate;
+        public string transDate;
 
-    public double amount;
+        public double amount;
 
-    public string memo;
+        public string memo;
 
-    public double newBalance;
+        public double newBalance;
+    }
 }
