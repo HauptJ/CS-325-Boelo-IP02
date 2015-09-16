@@ -46,6 +46,9 @@ namespace IP02
             this.tMemo = new System.Windows.Forms.TextBox();
             this.bAccept = new System.Windows.Forms.Button();
             this.bClear = new System.Windows.Forms.Button();
+            this.transType = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.test = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.tAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,7 +108,7 @@ namespace IP02
             // 
             // bAccept
             // 
-            this.bAccept.Location = new System.Drawing.Point(222, 110);
+            this.bAccept.Location = new System.Drawing.Point(222, 155);
             this.bAccept.Name = "bAccept";
             this.bAccept.Size = new System.Drawing.Size(75, 23);
             this.bAccept.TabIndex = 3;
@@ -115,7 +118,7 @@ namespace IP02
             // 
             // bClear
             // 
-            this.bClear.Location = new System.Drawing.Point(141, 110);
+            this.bClear.Location = new System.Drawing.Point(141, 155);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(75, 23);
             this.bClear.TabIndex = 4;
@@ -123,12 +126,49 @@ namespace IP02
             this.bClear.UseVisualStyleBackColor = true;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
             // 
-            // IP02_InputForm
+            // transType
+            // 
+            this.transType.FormattingEnabled = true;
+            this.transType.Items.AddRange(new object[] {
+            "Check",
+            "Cash",
+            "Deposite"});
+            this.transType.Location = new System.Drawing.Point(82, 94);
+            this.transType.Name = "transType";
+            this.transType.Size = new System.Drawing.Size(121, 21);
+            this.transType.TabIndex = 5;
+            this.transType.Text = "Select Transaction";
+            this.transType.SelectedIndexChanged += new System.EventHandler(this.transType_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Transaction";
+            // 
+            // test
+            // 
+            this.test.AutoSize = true;
+            this.test.Location = new System.Drawing.Point(82, 122);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(94, 17);
+            this.test.TabIndex = 7;
+            this.test.Text = "Display Check";
+            this.test.UseVisualStyleBackColor = true;
+            this.test.Visible = false;
+            // 
+            // IP02_InputForm_Boelo
             // 
             this.AcceptButton = this.bAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 145);
+            this.ClientSize = new System.Drawing.Size(315, 190);
+            this.Controls.Add(this.test);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.transType);
             this.Controls.Add(this.bClear);
             this.Controls.Add(this.bAccept);
             this.Controls.Add(this.tMemo);
@@ -137,7 +177,7 @@ namespace IP02
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "IP02_InputForm";
+            this.Name = "IP02_InputForm_Boelo";
             this.Text = "Boelo - Intro Project 2 - Input Check";
             ((System.ComponentModel.ISupportInitialize)(this.tAmount)).EndInit();
             this.ResumeLayout(false);
@@ -157,13 +197,20 @@ namespace IP02
         #endregion
 
         private string checkName, checkMemo;
+        private ComboBox transType;
+        private Label label4;
+        private CheckBox test;
         private double checkAmount;
 
         public IP02_InputForm_Boelo()
         {
             InitializeComponent();
         }
-        
+
+        public void showForm() {
+            Application.Run(this);
+        }
+
         private void bClear_Click(object sender, EventArgs e)
         {
             // Clears the value boxs
@@ -205,9 +252,32 @@ namespace IP02
             return checkMemo;
         }
 
+        private void transType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (transType.Text != "Check")
+            {
+                test.Visible = false;
+            }else
+            {
+                test.Visible = true;
+            }
+        }
+
         public double getAmount()
         {
             return checkAmount;
+        }
+
+        public bool viewCheck()
+        {
+            if(test.Checked == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
