@@ -23,12 +23,15 @@ namespace IP02
 
             // Create a while flag for entering more than one check.
             bool Rep;
+           
+                // Creating and running input form.
+                IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
+                
+                Application.Run(checkBook);
             do
             {
-                // Creating and running input form.
-
-                IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo();
-                Application.Run(InForm);
+                IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
+                InForm.showForm();
                 // Code doesn't advance until the user successfully enters a check. 
                 // So beyond this point, assume a check has been entered successfully. 
 
@@ -61,15 +64,16 @@ namespace IP02
 
                 // Creates and runs the output gui
                 OutputGUI output = new OutputGUI();
-
-                output.displayCheck(CheckTally.getNumChecks(), InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
-
+                if (InForm.viewCheck() == true)
+                {
+                    output.displayCheck(CheckTally.getNumChecks(), InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
+                }
 
                 // debug for amount to string
                 // MessageBox.Show("Amount: "+InForm.getAmount()+"\nAmount Text: "+dollarAmountAsTxt);
                 
                 // Creates a message box asking if they want to enter another check.
-                DialogResult dialogResult = MessageBox.Show("Would you like to enter another check?", "Boelo - Intro Project 1 - More Checks", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Would you like to enter another transaction?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                 if(dialogResult == DialogResult.Yes)
                 {
                     Rep = true;
