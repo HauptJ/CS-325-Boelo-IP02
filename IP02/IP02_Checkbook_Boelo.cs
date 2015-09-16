@@ -45,7 +45,6 @@ namespace IP02
             this.label3 = new System.Windows.Forms.Label();
             this.newCheckbook = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cancel = new System.Windows.Forms.Button();
             this.submit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -73,7 +72,6 @@ namespace IP02
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.newCheckbook);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.cancel);
             this.splitContainer1.Panel2.Controls.Add(this.submit);
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
             this.splitContainer1.Size = new System.Drawing.Size(284, 270);
@@ -133,18 +131,9 @@ namespace IP02
             this.label2.TabIndex = 6;
             this.label2.Text = "Create New Checkbook";
             // 
-            // cancel
-            // 
-            this.cancel.Location = new System.Drawing.Point(176, 114);
-            this.cancel.Name = "cancel";
-            this.cancel.Size = new System.Drawing.Size(75, 23);
-            this.cancel.TabIndex = 1;
-            this.cancel.Text = "Cancel";
-            this.cancel.UseVisualStyleBackColor = true;
-            // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(22, 114);
+            this.submit.Location = new System.Drawing.Point(197, 118);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(75, 23);
             this.submit.TabIndex = 0;
@@ -152,13 +141,13 @@ namespace IP02
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
-            // Form1
+            // IP02_Checkbook_Boelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 270);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "IP02_Checkbook_Boelo";
             this.Text = "Check Book";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -179,7 +168,6 @@ namespace IP02
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox newCheckbook;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button cancel;
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.NumericUpDown startingValue;
         private string checkbookName;
