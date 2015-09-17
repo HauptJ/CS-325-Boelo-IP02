@@ -50,9 +50,7 @@ namespace IP02
 
 
             // Read CSV
-            var csvRead = new RunEngine();
-            //csvRead.createNewFile("test.cbk");
-            csvRead.readCSV(fileName);
+
 
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
@@ -101,6 +99,10 @@ namespace IP02
                     balance += InForm.getAmount();
                     tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
                 }
+
+                var csvRead = new RunEngine();
+                //csvRead.createNewFile("test.cbk");
+                csvRead.readCSV(fileName,tra.ToString());
 
                 // These get the vaules from the input form. 
                 // Name is trimmed of whitespace and amount is positive non-zero

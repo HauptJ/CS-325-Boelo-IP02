@@ -38,7 +38,7 @@ namespace IP02 {
             }
         }
 
-        public void readCSV(string fileName, string hi)
+        public void readCSV(string fileName, string info)
         {
             var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
                 typeof(IP02_CheckIO_Boelo),
@@ -68,7 +68,7 @@ namespace IP02 {
                 using(StreamWriter test = File.AppendText(fileName))
                 {
                     
-                    test.Write(hi);
+                    test.Write(info);
                 }
 
             }
