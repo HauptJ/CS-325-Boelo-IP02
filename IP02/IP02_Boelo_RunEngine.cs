@@ -51,8 +51,7 @@ namespace IP02 {
                 }
             }
 
-            //MessageBox.Show(x.ToString());
-            //MessageBox.Show(index[1]);
+
             int hi = Convert.ToInt32(index[1]);
             read.Close();
             return hi + 1;

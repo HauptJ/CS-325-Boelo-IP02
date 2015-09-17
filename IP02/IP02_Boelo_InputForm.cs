@@ -264,6 +264,7 @@ namespace IP02
                 }
                 else {
                     selectedType = "CASH";
+                    checkMemo = tMemo.Text;
                     checkAmount = System.Convert.ToDouble(tAmount.Value);
                     this.Close();
                 }
@@ -274,6 +275,7 @@ namespace IP02
                 }
                 else {
                     selectedType = "DEPOSIT";
+                    checkMemo = tMemo.Text;
                     checkAmount = System.Convert.ToDouble(tAmount.Value);
                     this.Close();
                 }
