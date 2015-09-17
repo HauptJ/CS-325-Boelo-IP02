@@ -38,134 +38,19 @@ namespace IP02
         /// </summary>
         private void InitializeComponent()
         {
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.bBrowseOpen = new System.Windows.Forms.Button();
-            this.exisitingCheckbook = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.bBrowseSave = new System.Windows.Forms.Button();
-            this.startingValue = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.newCheckbook = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.submit = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.submit = new System.Windows.Forms.Button();
+            this.balanceLabel = new System.Windows.Forms.Label();
+            this.balanceBox = new System.Windows.Forms.NumericUpDown();
             this.bExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.startingValue)).BeginInit();
+            this.pathBox = new System.Windows.Forms.TextBox();
+            this.bBrowse = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.bClear = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.balanceBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.bBrowseOpen);
-            this.splitContainer1.Panel1.Controls.Add(this.exisitingCheckbook);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.bExit);
-            this.splitContainer1.Panel2.Controls.Add(this.bBrowseSave);
-            this.splitContainer1.Panel2.Controls.Add(this.startingValue);
-            this.splitContainer1.Panel2.Controls.Add(this.label3);
-            this.splitContainer1.Panel2.Controls.Add(this.newCheckbook);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Panel2.Controls.Add(this.submit);
-            this.splitContainer1.Size = new System.Drawing.Size(336, 260);
-            this.splitContainer1.SplitterDistance = 117;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // bBrowseOpen
-            // 
-            this.bBrowseOpen.Location = new System.Drawing.Point(249, 32);
-            this.bBrowseOpen.Name = "bBrowseOpen";
-            this.bBrowseOpen.Size = new System.Drawing.Size(75, 23);
-            this.bBrowseOpen.TabIndex = 4;
-            this.bBrowseOpen.Text = "Browse";
-            this.bBrowseOpen.UseVisualStyleBackColor = true;
-            this.bBrowseOpen.Click += new System.EventHandler(this.bBrowse_Click);
-            // 
-            // exisitingCheckbook
-            // 
-            this.exisitingCheckbook.Location = new System.Drawing.Point(15, 35);
-            this.exisitingCheckbook.Name = "exisitingCheckbook";
-            this.exisitingCheckbook.Size = new System.Drawing.Size(228, 20);
-            this.exisitingCheckbook.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Chose Existing Checkbook";
-            // 
-            // bBrowseSave
-            // 
-            this.bBrowseSave.Location = new System.Drawing.Point(249, 32);
-            this.bBrowseSave.Name = "bBrowseSave";
-            this.bBrowseSave.Size = new System.Drawing.Size(75, 23);
-            this.bBrowseSave.TabIndex = 5;
-            this.bBrowseSave.Text = "Browse";
-            this.bBrowseSave.UseVisualStyleBackColor = true;
-            this.bBrowseSave.Click += new System.EventHandler(this.bBrowseSave_Click);
-            // 
-            // startingValue
-            // 
-            this.startingValue.Location = new System.Drawing.Point(103, 69);
-            this.startingValue.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.startingValue.Name = "startingValue";
-            this.startingValue.Size = new System.Drawing.Size(100, 20);
-            this.startingValue.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Starting Balance";
-            // 
-            // newCheckbook
-            // 
-            this.newCheckbook.Location = new System.Drawing.Point(15, 34);
-            this.newCheckbook.Name = "newCheckbook";
-            this.newCheckbook.Size = new System.Drawing.Size(228, 20);
-            this.newCheckbook.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Create New Checkbook";
-            // 
-            // submit
-            // 
-            this.submit.Location = new System.Drawing.Point(249, 100);
-            this.submit.Name = "submit";
-            this.submit.Size = new System.Drawing.Size(75, 23);
-            this.submit.TabIndex = 0;
-            this.submit.Text = "Submit";
-            this.submit.UseVisualStyleBackColor = true;
-            this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
             // openFileDialog1
             // 
@@ -175,9 +60,41 @@ namespace IP02
             // 
             this.saveFileDialog1.DefaultExt = "cbk";
             // 
+            // submit
+            // 
+            this.submit.Location = new System.Drawing.Point(335, 103);
+            this.submit.Name = "submit";
+            this.submit.Size = new System.Drawing.Size(75, 23);
+            this.submit.TabIndex = 0;
+            this.submit.Text = "Submit";
+            this.submit.UseVisualStyleBackColor = true;
+            this.submit.Click += new System.EventHandler(this.submit_Click);
+            // 
+            // balanceLabel
+            // 
+            this.balanceLabel.AutoSize = true;
+            this.balanceLabel.Location = new System.Drawing.Point(12, 73);
+            this.balanceLabel.Name = "balanceLabel";
+            this.balanceLabel.Size = new System.Drawing.Size(85, 13);
+            this.balanceLabel.TabIndex = 8;
+            this.balanceLabel.Text = "Starting Balance";
+            // 
+            // balanceBox
+            // 
+            this.balanceBox.DecimalPlaces = 2;
+            this.balanceBox.Location = new System.Drawing.Point(103, 71);
+            this.balanceBox.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
+            this.balanceBox.Name = "balanceBox";
+            this.balanceBox.Size = new System.Drawing.Size(140, 20);
+            this.balanceBox.TabIndex = 9;
+            // 
             // bExit
             // 
-            this.bExit.Location = new System.Drawing.Point(167, 100);
+            this.bExit.Location = new System.Drawing.Point(173, 103);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(75, 23);
             this.bExit.TabIndex = 10;
@@ -185,42 +102,98 @@ namespace IP02
             this.bExit.UseVisualStyleBackColor = true;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
             // 
+            // pathBox
+            // 
+            this.pathBox.Location = new System.Drawing.Point(12, 35);
+            this.pathBox.Name = "pathBox";
+            this.pathBox.Size = new System.Drawing.Size(317, 20);
+            this.pathBox.TabIndex = 3;
+            // 
+            // bBrowse
+            // 
+            this.bBrowse.Location = new System.Drawing.Point(335, 33);
+            this.bBrowse.Name = "bBrowse";
+            this.bBrowse.Size = new System.Drawing.Size(75, 23);
+            this.bBrowse.TabIndex = 4;
+            this.bBrowse.Text = "Browse";
+            this.bBrowse.UseVisualStyleBackColor = true;
+            this.bBrowse.Click += new System.EventHandler(this.bBrowse_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(12, 12);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(106, 17);
+            this.radioButton1.TabIndex = 5;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "New CheckBook";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(124, 12);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(119, 17);
+            this.radioButton2.TabIndex = 11;
+            this.radioButton2.Text = "Existing Checkbook";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // bClear
+            // 
+            this.bClear.Location = new System.Drawing.Point(254, 103);
+            this.bClear.Name = "bClear";
+            this.bClear.Size = new System.Drawing.Size(75, 23);
+            this.bClear.TabIndex = 12;
+            this.bClear.Text = "Clear";
+            this.bClear.UseVisualStyleBackColor = true;
+            this.bClear.Click += new System.EventHandler(this.bClear_Click);
+            // 
             // IP02_Checkbook_Boelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 260);
+            this.ClientSize = new System.Drawing.Size(429, 138);
             this.ControlBox = false;
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.bClear);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.balanceLabel);
+            this.Controls.Add(this.bExit);
+            this.Controls.Add(this.balanceBox);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.bBrowse);
+            this.Controls.Add(this.pathBox);
+            this.Controls.Add(this.submit);
             this.Name = "IP02_Checkbook_Boelo";
-            this.Text = "Check Book";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.startingValue)).EndInit();
+            this.Text = "Boelo - Intro Project 2 - Checkbook Selection";
+            ((System.ComponentModel.ISupportInitialize)(this.balanceBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
+
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private Button submit;
+        private Label balanceLabel;
+        private NumericUpDown balanceBox;
+        private Button bExit;
+        private TextBox pathBox;
+        private Button bBrowse;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private Button bClear;
+
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TextBox exisitingCheckbook;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox newCheckbook;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button submit;
-        private System.Windows.Forms.NumericUpDown startingValue;
-        
-        private Button bBrowseOpen;
-        private OpenFileDialog openFileDialog1;
-        private Button bBrowseSave;
-        private SaveFileDialog saveFileDialog1;
-        private Button bExit;
+
+
+
 
         private double startingBalance;
         private string checkbookName;
@@ -232,28 +205,21 @@ namespace IP02
             InitializeComponent();
         }
 
-    
-
         private void submit_Click(object sender, EventArgs e)
         {
-            if (exisitingCheckbook.Text.Trim() == "" & (newCheckbook.Text.Trim() == ""))
+            if (pathBox.Text.Trim() == "")
             {
                 MessageBox.Show("Please Choose wether to Create or open a checkbook.");
                 //.Focus();
             }
             else
             {
-                if(exisitingCheckbook.Text.Trim()!= "")
+                if(pathBox.Text.Trim() != "")
                 {
-                    checkbookName = exisitingCheckbook.Text;
-                }else if(newCheckbook.Text.Trim()!="")
-                {
-                    checkbookName = newCheckbook.Text;
-                    startingBalance = System.Convert.ToDouble(startingValue.Value);
-                    
+                    checkbookName = pathBox.Text;
+                    startingBalance = System.Convert.ToDouble(balanceBox.Value);
                 }
                 this.Close();
-                
             }
         }
 
@@ -267,34 +233,51 @@ namespace IP02
             return startingBalance;
         }
 
-        private void bBrowse_Click(object sender, EventArgs e)
+        public bool isExisting()
         {
-            openFileDialog1.ShowDialog();
-            checkbookName = openFileDialog1.FileName;
-            exisitingCheckbook.Text = checkbookName;
-            exisitingCheckbook.Enabled = true;
-            newCheckbook.Enabled = false;
-            existing = true;
+            return existing;
         }
-
-        private void bBrowseSave_Click(object sender, EventArgs e)
-        {
-            saveFileDialog1.ShowDialog();
-            checkbookName = saveFileDialog1.FileName;
-            newCheckbook.Text = checkbookName;
-            newCheckbook.Enabled = true;
-            exisitingCheckbook.Enabled = false;
-            existing = false;
-        }
-
         private void bExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
         }
 
-        public bool isExisting()
+        private void bBrowse_Click(object sender, EventArgs e)
         {
-            return existing;
+            if(radioButton1.Checked)
+            {
+                saveFileDialog1.ShowDialog();
+                checkbookName = saveFileDialog1.FileName;
+            }
+            else if(radioButton2.Checked)
+            {
+                openFileDialog1.ShowDialog();
+                checkbookName = openFileDialog1.FileName;
+            }
+                
+            pathBox.Text = checkbookName;
+        }
+
+
+        private void bClear_Click(object sender, EventArgs e)
+        {
+            radioButton1.Checked = true;
+            pathBox.Text = "";
+            balanceBox.Value = 0;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            balanceLabel.Show();
+            balanceBox.Show();
+            existing = false;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            balanceLabel.Hide();
+            balanceBox.Hide();
+            existing = true;
         }
     }
 }
