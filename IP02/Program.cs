@@ -27,40 +27,33 @@ namespace IP02
 
             //CSV file name
             string fileName;
-
-            //set fileName
-
-            // Create a while flag for entering more than one check.
-            bool Rep = true;
-
-            // Creating and running input form.
             
+            // Creating and running checkbook input form.
             IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
             Application.Run(checkBook);
 
+            //set fileName
             fileName = checkBook.getCheckbook();
             if (!checkBook.isExisting())
             {
                 var csvTest = new RunEngine();
                 csvTest.createNewFile(fileName, checkBook.getBalance());
             }
+
             //DEBUG
             //test CSV
             //var csvTest = new RunEngine();
             //csvTest.createNewFile(fileName);
             //csvTest.test();
-
-            //DEBUG
-            //create new file
-
-
-            // Read CSV
-
-
+            
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
+
             double balance = 0;
             //TODO CheckSum.newSum(initialAmount); 
+
+            // Create a while flag for entering more than one check.
+            bool Rep = true;
             do
             {
                 IP02_TransactionsIO_Boelo tra;

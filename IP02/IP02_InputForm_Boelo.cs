@@ -109,7 +109,7 @@ namespace IP02
             // 
             // bAccept
             // 
-            this.bAccept.Location = new System.Drawing.Point(222, 155);
+            this.bAccept.Location = new System.Drawing.Point(222, 133);
             this.bAccept.Name = "bAccept";
             this.bAccept.Size = new System.Drawing.Size(75, 23);
             this.bAccept.TabIndex = 3;
@@ -119,7 +119,7 @@ namespace IP02
             // 
             // bClear
             // 
-            this.bClear.Location = new System.Drawing.Point(141, 155);
+            this.bClear.Location = new System.Drawing.Point(141, 133);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(75, 23);
             this.bClear.TabIndex = 4;
@@ -153,7 +153,7 @@ namespace IP02
             // test
             // 
             this.test.AutoSize = true;
-            this.test.Location = new System.Drawing.Point(82, 122);
+            this.test.Location = new System.Drawing.Point(209, 96);
             this.test.Name = "test";
             this.test.Size = new System.Drawing.Size(94, 17);
             this.test.TabIndex = 7;
@@ -164,7 +164,7 @@ namespace IP02
             // bExit
             // 
             this.bExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.bExit.Location = new System.Drawing.Point(60, 155);
+            this.bExit.Location = new System.Drawing.Point(60, 133);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(75, 23);
             this.bExit.TabIndex = 8;
@@ -178,7 +178,7 @@ namespace IP02
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.bExit;
-            this.ClientSize = new System.Drawing.Size(315, 190);
+            this.ClientSize = new System.Drawing.Size(315, 174);
             this.ControlBox = false;
             this.Controls.Add(this.bExit);
             this.Controls.Add(this.test);
