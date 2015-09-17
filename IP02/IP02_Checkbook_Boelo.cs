@@ -50,6 +50,7 @@ namespace IP02
             this.submit = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.bExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -72,6 +73,7 @@ namespace IP02
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.bExit);
             this.splitContainer1.Panel2.Controls.Add(this.bBrowseSave);
             this.splitContainer1.Panel2.Controls.Add(this.startingValue);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
@@ -173,11 +175,22 @@ namespace IP02
             // 
             this.saveFileDialog1.DefaultExt = "cbk";
             // 
+            // bExit
+            // 
+            this.bExit.Location = new System.Drawing.Point(167, 100);
+            this.bExit.Name = "bExit";
+            this.bExit.Size = new System.Drawing.Size(75, 23);
+            this.bExit.TabIndex = 10;
+            this.bExit.Text = "Exit";
+            this.bExit.UseVisualStyleBackColor = true;
+            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            // 
             // IP02_Checkbook_Boelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(336, 260);
+            this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Name = "IP02_Checkbook_Boelo";
             this.Text = "Check Book";
@@ -209,6 +222,7 @@ namespace IP02
         private SaveFileDialog saveFileDialog1;
 
         private double startingBalance;
+        private Button bExit;
         private string checkbookName;
 
 
@@ -265,7 +279,10 @@ namespace IP02
             checkbookName = saveFileDialog1.FileName;
             newCheckbook.Text = checkbookName;
         }
-        
- 
+
+        private void bExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
