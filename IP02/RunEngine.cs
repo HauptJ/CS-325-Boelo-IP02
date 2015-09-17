@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FileHelpers;
 using System.IO;
+using System.Windows.Forms;
 
 namespace IP02 {
     public class RunEngine
@@ -69,6 +70,7 @@ namespace IP02 {
         public void createNewFile(string fileName)
         {
             FileStream fs = File.Create(fileName);
+            fs.Close(); 
         }
     }
 }
