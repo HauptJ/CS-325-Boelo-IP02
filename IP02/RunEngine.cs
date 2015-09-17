@@ -19,20 +19,20 @@ namespace IP02 {
             int x = 1;
             StreamReader read = new StreamReader(file);
             
-               
-                while(!read.EndOfStream)
-                {
-                    x++;
-                    test = read.ReadLine();
-                    index = test.Split(',');
-                    
-                }
-            MessageBox.Show(x.ToString());
+            while (!read.EndOfStream)
+            {
+                x++;
+                test = read.ReadLine();
+                index = test.Split(',');
+            }
+
+            //MessageBox.Show(x.ToString());
             MessageBox.Show(index[5]);
             double hi = Convert.ToDouble(index[5]);
             read.Close();
             return hi;
         }
+
         public void readCSV(string fileName, string info)
         {
             var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
@@ -74,14 +74,22 @@ namespace IP02 {
         }
 
         //create new file
-        public void createNewFile(string fileName,double bal)
+        public void createNewFile(string fileName, double bal)
         {
             FileStream fs = File.Create(fileName);
             fs.Close();
-            //using (StreamWriter test = File.AppendText(fileName))
-            //{
-            //    test.WriteLine(bal);
-            //}
+            try
+            {
+                using (StreamWriter test = File.AppendText(fileName))
+                {
+                    test.WriteLine("00/00/0000,DEPOSIT,"+bal+",DEPOSIT,Initial Balance,"+bal+"\n");
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                //write error
+                Console.WriteLine(ex);
+            }
         }
     }
 }
