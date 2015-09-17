@@ -17,5 +17,19 @@ namespace IP02
         public string memo;
 
         public double newBalance;
+
+        public IP02_TransactionsIO_Boelo()
+        {
+
+        }
+
+        public IP02_TransactionsIO_Boelo(string tt, string td, double amt, string mem, double nb)
+        {
+            transType = tt;
+            transDate = td;
+            amount = amt;
+            memo = mem;
+            newBalance = nb;
+        }
     }
 }
