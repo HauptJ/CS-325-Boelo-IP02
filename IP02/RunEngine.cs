@@ -82,7 +82,8 @@ namespace IP02 {
             {
                 using (StreamWriter test = File.AppendText(fileName))
                 {
-                    test.WriteLine("00/00/0000,DEPOSIT,"+bal+",DEPOSIT,Initial Balance,"+bal+"\n");
+                    string info = ("00/00/0000,DEPOSIT," + bal + ",DEPOSIT,Initial Balance," + bal);
+                    test.WriteLine(info.ToString());
                 }
             }
             catch (FileNotFoundException ex)
