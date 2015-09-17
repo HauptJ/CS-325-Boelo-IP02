@@ -192,7 +192,7 @@ namespace IP02
         #endregion
 
 
-
+//----- END OF GENERATED CONTENT ----------------------------------------------------------
 
 
         private double startingBalance;
