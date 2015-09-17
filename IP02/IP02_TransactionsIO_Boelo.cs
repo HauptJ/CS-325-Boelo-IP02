@@ -23,10 +23,10 @@ namespace IP02
 
         }
 
-        public IP02_TransactionsIO_Boelo(string tt, string td, double amt, string ttp, string mem, double nb)
+        public IP02_TransactionsIO_Boelo(string td, string tt, double amt, string ttp, string mem, double nb)
         {
-            transType = tt;
             transDate = td;
+            transType = tt;
             amount = amt;
             transTypePrint = ttp;
             memo = mem;
