@@ -56,7 +56,7 @@ namespace IP02
 
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
-
+            double balance = 0;
             //TODO CheckSum.newSum(initialAmount); 
             do
             {
@@ -78,27 +78,28 @@ namespace IP02
 
 
                 if (InForm.getSelectedType() == "Check") {
-                    if(InForm.getAmount() > CheckTally.getCheckSum()) {
+                    if(InForm.getAmount() > balance) {
                         DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                         if (result == DialogResult.No)
                             continue;
                     }
                     CheckTally.incrementNumChecks();
-                    CheckTally.newSum(-InForm.getAmount());
-                    tra = new IP02_TransactionsIO_Boelo(InForm.getSelectedType(), date, InForm.getAmount(), InForm.getMemo(), CheckTally.getCheckSum());
+                    CheckTally.newSum(InForm.getAmount());
+                    balance -= InForm.getAmount();
+                    tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
                 }
                 else if (InForm.getSelectedType() == "Cash") {
-                    if(InForm.getAmount() > CheckTally.getCheckSum()) {
+                    if(InForm.getAmount() > balance) {
                         DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                         if (result == DialogResult.No)
                             continue;
                     }
-                    CheckTally.newSum(-InForm.getAmount());
-                    tra = new IP02_TransactionsIO_Boelo(InForm.getSelectedType(), date, InForm.getAmount(), InForm.getMemo(), CheckTally.getCheckSum());
+                    balance -= InForm.getAmount();
+                    tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
                 }
                 else {
-                    CheckTally.newSum(InForm.getAmount());
-                    tra = new IP02_TransactionsIO_Boelo(InForm.getSelectedType(), date, InForm.getAmount(), InForm.getMemo(), CheckTally.getCheckSum());
+                    balance += InForm.getAmount();
+                    tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
                 }
 
                 // These get the vaules from the input form. 
@@ -127,7 +128,7 @@ namespace IP02
                 // MessageBox.Show("Amount: "+InForm.getAmount()+"\nAmount Text: "+dollarAmountAsTxt);
                 
                 // Creates a message box asking if they want to enter another check.
-                DialogResult dialogResult = MessageBox.Show("Current balance: " + CheckTally.getCheckSum() + "\nWould you like to enter another transaction?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Current balance: " + balance + "\nWould you like to enter another transaction?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                 if(dialogResult == DialogResult.Yes)
                 {
                     Rep = true;
