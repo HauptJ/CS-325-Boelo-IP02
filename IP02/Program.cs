@@ -27,18 +27,19 @@ namespace IP02
 
             //CSV file name
             string fileName;
-
-            //set fileName
-            fileName = "checkbook.cbk";
-
-            // Create a while flag for entering more than one check.
-            bool Rep;
-
-            // Creating and running input form.
             
+            // Creating and running input form.
             IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
             Application.Run(checkBook);
+            
+            //set fileName
+            fileName = checkBook.getCheckbook();
 
+            if(!checkBook.isExisting())
+            {
+                var csvTest = new RunEngine();
+                csvTest.createNewFile(fileName);
+            }
             //DEBUG
             //test CSV
             //var csvTest = new RunEngine();
@@ -47,16 +48,18 @@ namespace IP02
 
             //DEBUG
             //create new file
-
+            //csvTest.createNewFile(fileName);
 
             // Read CSV
             var csvRead = new RunEngine();
-            //csvRead.createNewFile("test.cbk");
             csvRead.readCSV(fileName);
 
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
 
+
+            // Create a while flag for entering more than one check.
+            bool Rep;
             do
             {
                 IP02_TransactionsIO_Boelo tra = new IP02_TransactionsIO_Boelo();
