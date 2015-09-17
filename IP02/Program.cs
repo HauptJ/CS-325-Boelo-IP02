@@ -32,12 +32,15 @@ namespace IP02
             IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
             Application.Run(checkBook);
 
+            //creates and sets the balance from the form
+            double balance = checkBook.getBalance();
+
             //set fileName
             fileName = checkBook.getCheckbook();
             if (!checkBook.isExisting())
             {
                 var csvTest = new RunEngine();
-                csvTest.createNewFile(fileName, checkBook.getBalance());
+                csvTest.createNewFile(fileName, balance);
             }
 
             //DEBUG
@@ -49,7 +52,6 @@ namespace IP02
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
 
-            double balance = 0;
             //TODO CheckSum.newSum(initialAmount); 
 
             // Create a while flag for entering more than one check.
@@ -73,7 +75,7 @@ namespace IP02
                     + DateTime.Now.Year;
 
 
-                if (InForm.getSelectedType() == "Check") {
+                if (InForm.getSelectedType() == "CHECK") {
                     if(InForm.getAmount() > balance) {
                         DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                         if (result == DialogResult.No)
@@ -84,7 +86,7 @@ namespace IP02
                     balance -= InForm.getAmount();
                     tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
                 }
-                else if (InForm.getSelectedType() == "Cash") {
+                else if (InForm.getSelectedType() == "CASH") {
                     if(InForm.getAmount() > balance) {
                         DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                         if (result == DialogResult.No)
@@ -117,7 +119,7 @@ namespace IP02
 
                 // Creates and runs the output gui
                 OutputGUI output = new OutputGUI();
-                if (InForm.getSelectedType() == "Check" && InForm.viewCheck() == true)
+                if (InForm.getSelectedType() == "CHECK" && InForm.viewCheck() == true)
                 {
                     output.displayCheck(CheckTally.getNumChecks(), InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
                 }

@@ -68,7 +68,6 @@ namespace IP02 {
                 //}
                 using (StreamWriter test = File.AppendText(fileName))
                 {
-                    
                     test.WriteLine(info.ToString());
                 }
 
@@ -85,10 +84,24 @@ namespace IP02 {
         {
             FileStream fs = File.Create(fileName);
             fs.Close();
-            //using (StreamWriter test = File.AppendText(fileName))
-            //{
-            //    test.WriteLine(bal);
-            //}
+            try
+            {
+                using (StreamWriter test = File.AppendText(fileName))
+                {
+                    test.WriteLine("00/00/0000,DEPOSIT,"+bal+",DEPOSIT,Initial Balance,"+bal+"\n");
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                //write error
+                Console.WriteLine(ex);
+            }
+        }
+
+        public double getExistingBalance()
+        {
+
+            return 0;
         }
     }
 }

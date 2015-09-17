@@ -132,9 +132,9 @@ namespace IP02
             this.transType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transType.FormattingEnabled = true;
             this.transType.Items.AddRange(new object[] {
-            "Check",
-            "Cash",
-            "Deposit"});
+            "CHECK",
+            "CASH",
+            "DEPOSIT"});
             this.transType.Location = new System.Drawing.Point(82, 94);
             this.transType.Name = "transType";
             this.transType.Size = new System.Drawing.Size(121, 21);
