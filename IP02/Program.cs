@@ -57,6 +57,7 @@ namespace IP02
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
 
+            //TODO CheckSum.newSum(initialAmount); 
             do
             {
                 IP02_TransactionsIO_Boelo tra = new IP02_TransactionsIO_Boelo();
@@ -68,9 +69,14 @@ namespace IP02
                 // Debug for input form
                 //MessageBox.Show("Name: " + InForm.getName() + "\nAmount: " + InForm.getAmount() + "\nMemo: " + InForm.getMemo() );
 
-                // Display the check
+                // Get the date for the transaction
+                String day = DateTime.Now.Day.ToString();
+                String month = DateTime.Now.Month.ToString();
+                String date = (month.Length == 1 ? "0" + month : month) + "/"
+                    + (day.Length == 1 ? "0" + day : day) + "/"
+                    + DateTime.Now.Year;
 
-                
+
                 if (InForm.getSelectedType() == "Check") {
                     if(InForm.getAmount() > CheckTally.getCheckSum()) {
                         DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
@@ -79,6 +85,11 @@ namespace IP02
                     }
                     CheckTally.incrementNumChecks();
                     CheckTally.newSum(-InForm.getAmount());
+                    tra.amount = InForm.getAmount();
+                    tra.memo = InForm.getMemo();
+                    tra.newBalance = CheckTally.getCheckSum();
+                    tra.transDate = date;
+                    tra.transType = "CHECK";
                 }
                 else if (InForm.getSelectedType() == "Cash") {
                     if(InForm.getAmount() > CheckTally.getCheckSum()) {
@@ -87,9 +98,19 @@ namespace IP02
                             continue;
                     }
                     CheckTally.newSum(-InForm.getAmount());
+                    tra.amount = InForm.getAmount();
+                    tra.memo = InForm.getMemo();
+                    tra.newBalance = CheckTally.getCheckSum();
+                    tra.transDate = date;
+                    tra.transType = "CASH";
                 }
                 else {
                     CheckTally.newSum(InForm.getAmount());
+                    tra.amount = InForm.getAmount();
+                    tra.memo = InForm.getMemo();
+                    tra.newBalance = CheckTally.getCheckSum();
+                    tra.transDate = date;
+                    tra.transType = "DEPOSIT";
                 }
 
                 // These get the vaules from the input form. 
