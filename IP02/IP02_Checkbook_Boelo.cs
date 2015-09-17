@@ -39,15 +39,17 @@ namespace IP02
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.bBrowseOpen = new System.Windows.Forms.Button();
             this.exisitingCheckbook = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.bBrowseSave = new System.Windows.Forms.Button();
             this.startingValue = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.newCheckbook = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.submit = new System.Windows.Forms.Button();
-            this.bBrowse = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,22 +66,31 @@ namespace IP02
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.bBrowse);
+            this.splitContainer1.Panel1.Controls.Add(this.bBrowseOpen);
             this.splitContainer1.Panel1.Controls.Add(this.exisitingCheckbook);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.bBrowseSave);
             this.splitContainer1.Panel2.Controls.Add(this.startingValue);
             this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.newCheckbook);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Panel2.Controls.Add(this.submit);
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(336, 326);
-            this.splitContainer1.SplitterDistance = 147;
+            this.splitContainer1.Size = new System.Drawing.Size(336, 260);
+            this.splitContainer1.SplitterDistance = 117;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // bBrowseOpen
+            // 
+            this.bBrowseOpen.Location = new System.Drawing.Point(249, 32);
+            this.bBrowseOpen.Name = "bBrowseOpen";
+            this.bBrowseOpen.Size = new System.Drawing.Size(75, 23);
+            this.bBrowseOpen.TabIndex = 4;
+            this.bBrowseOpen.Text = "Browse";
+            this.bBrowseOpen.UseVisualStyleBackColor = true;
+            this.bBrowseOpen.Click += new System.EventHandler(this.bBrowse_Click);
             // 
             // exisitingCheckbook
             // 
@@ -97,9 +108,19 @@ namespace IP02
             this.label1.TabIndex = 2;
             this.label1.Text = "Chose Existing Checkbook";
             // 
+            // bBrowseSave
+            // 
+            this.bBrowseSave.Location = new System.Drawing.Point(249, 32);
+            this.bBrowseSave.Name = "bBrowseSave";
+            this.bBrowseSave.Size = new System.Drawing.Size(75, 23);
+            this.bBrowseSave.TabIndex = 5;
+            this.bBrowseSave.Text = "Browse";
+            this.bBrowseSave.UseVisualStyleBackColor = true;
+            this.bBrowseSave.Click += new System.EventHandler(this.bBrowseSave_Click);
+            // 
             // startingValue
             // 
-            this.startingValue.Location = new System.Drawing.Point(151, 60);
+            this.startingValue.Location = new System.Drawing.Point(103, 69);
             this.startingValue.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -112,7 +133,7 @@ namespace IP02
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 62);
+            this.label3.Location = new System.Drawing.Point(12, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 8;
@@ -120,15 +141,15 @@ namespace IP02
             // 
             // newCheckbook
             // 
-            this.newCheckbook.Location = new System.Drawing.Point(151, 21);
+            this.newCheckbook.Location = new System.Drawing.Point(15, 34);
             this.newCheckbook.Name = "newCheckbook";
-            this.newCheckbook.Size = new System.Drawing.Size(173, 20);
+            this.newCheckbook.Size = new System.Drawing.Size(228, 20);
             this.newCheckbook.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 24);
+            this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 13);
             this.label2.TabIndex = 6;
@@ -136,7 +157,7 @@ namespace IP02
             // 
             // submit
             // 
-            this.submit.Location = new System.Drawing.Point(197, 118);
+            this.submit.Location = new System.Drawing.Point(249, 100);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(75, 23);
             this.submit.TabIndex = 0;
@@ -144,29 +165,22 @@ namespace IP02
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
             // 
-            // bBrowse
-            // 
-            this.bBrowse.Location = new System.Drawing.Point(249, 32);
-            this.bBrowse.Name = "bBrowse";
-            this.bBrowse.Size = new System.Drawing.Size(75, 23);
-            this.bBrowse.TabIndex = 4;
-            this.bBrowse.Text = "Browse";
-            this.bBrowse.UseVisualStyleBackColor = true;
-            this.bBrowse.Click += new System.EventHandler(this.bBrowse_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "cbk";
             // 
             // IP02_Checkbook_Boelo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 326);
+            this.ClientSize = new System.Drawing.Size(336, 260);
             this.Controls.Add(this.splitContainer1);
             this.Name = "IP02_Checkbook_Boelo";
             this.Text = "Check Book";
-            this.Load += new System.EventHandler(this.IP02_Checkbook_Boelo_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -189,8 +203,10 @@ namespace IP02
         private System.Windows.Forms.Button submit;
         private System.Windows.Forms.NumericUpDown startingValue;
         
-        private Button bBrowse;
+        private Button bBrowseOpen;
         private OpenFileDialog openFileDialog1;
+        private Button bBrowseSave;
+        private SaveFileDialog saveFileDialog1;
 
         private double startingBalance;
         private string checkbookName;
@@ -203,14 +219,9 @@ namespace IP02
 
     
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void submit_Click(object sender, EventArgs e)
         {
-            if (exisitingCheckbook.Text.Trim() == "" & newCheckbook.Text.Trim() == "")
+            if (exisitingCheckbook.Text.Trim() == "" & (newCheckbook.Text.Trim() == ""))
             {
                 MessageBox.Show("Please Choose wether to Create or open a checkbook.");
                 //.Focus();
@@ -231,16 +242,6 @@ namespace IP02
             }
         }
 
-        private void startingVal_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         public string getCheckbook()
         {
             return checkbookName;
@@ -258,9 +259,13 @@ namespace IP02
             exisitingCheckbook.Text = checkbookName;
         }
 
-        private void IP02_Checkbook_Boelo_Load(object sender, EventArgs e)
+        private void bBrowseSave_Click(object sender, EventArgs e)
         {
-
+            saveFileDialog1.ShowDialog();
+            checkbookName = saveFileDialog1.FileName;
+            newCheckbook.Text = checkbookName;
         }
+        
+ 
     }
 }

@@ -33,9 +33,11 @@ namespace IP02
 
             // Create a while flag for entering more than one check.
             bool Rep;
-           
-                // Creating and running input form.
-                IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
+
+            // Creating and running input form.
+            
+            IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
+            Application.Run(checkBook);
 
             //DEBUG
             //test CSV
@@ -55,7 +57,6 @@ namespace IP02
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
 
-            Application.Run(checkBook);
             do
             {
                 IP02_TransactionsIO_Boelo tra = new IP02_TransactionsIO_Boelo();
