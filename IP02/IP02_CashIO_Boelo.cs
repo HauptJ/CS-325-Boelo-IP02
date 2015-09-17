@@ -1,8 +1,10 @@
-﻿using FileHelpers;
+﻿using System;
+using System.Collections.Generic;
+using FileHelpers;
 namespace IP02
 {
-    [DelimitedRecord(";")]
-    public class IP02_CashIO_Boelo : IP02_Transactions_Boelo
+    [DelimitedRecord(",")]
+    public class IP02_CashIO_Boelo : IP02_TransactionsIO_Boelo
     {
         public string checkType = "CASH";
 

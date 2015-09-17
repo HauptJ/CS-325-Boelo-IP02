@@ -1,10 +1,11 @@
-﻿using FileHelpers;
-
+﻿using System;
+using System.Collections.Generic;
+using FileHelpers;
 namespace IP02
 {
-    [DelimitedRecord(";")]
+    [DelimitedRecord(",")]
 
-    public class IP02_CheckIO_Boelo : IP02_Transactions_Boelo
+    public class IP02_CheckIO_Boelo : IP02_TransactionsIO_Boelo
     {
         public int checkNbr = 1001;
 

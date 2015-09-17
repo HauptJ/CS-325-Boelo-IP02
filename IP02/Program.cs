@@ -10,6 +10,9 @@ namespace IP02
 {
     static class Program
     {
+
+        //public string fileName;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -22,16 +25,31 @@ namespace IP02
             // Creating new tally.
             IP01_Tally_Boelo CheckTally = new IP01_Tally_Boelo();
 
+            //CSV file name
+            string fileName;
+
+            //set fileName
+            fileName = "checkbook.csv";
+
             // Create a while flag for entering more than one check.
             bool Rep;
            
                 // Creating and running input form.
                 IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
-                
-                Application.Run(checkBook);
+
+            //DEBUG
+            //test CSV
+            //var csvTest = new RunEngine();
+            //csvTest.test();
+
+            // Read CSV
+            var csvRead = new RunEngine();
+            csvRead.readCSV(fileName);
+
+            Application.Run(checkBook);
             do
             {
-                IP02_Transactions_Boelo tra = new IP02_Transactions_Boelo();
+                IP02_TransactionsIO_Boelo tra = new IP02_TransactionsIO_Boelo();
                 IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
                 InForm.showForm();
                 // Code doesn't advance until the user successfully enters a check. 
