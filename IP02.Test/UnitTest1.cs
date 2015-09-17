@@ -8,7 +8,7 @@ namespace IP02 {
         //Test the RunEngine class
         [TestMethod]
         public void TestRunEngine() {
-            RunEngine engine = new RunEngine();
+            IP02_Boelo_RunEngine engine = new IP02_Boelo_RunEngine();
             engine.test("checkbook.cbk");
         }
 

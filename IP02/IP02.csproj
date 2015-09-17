@@ -54,34 +54,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IP01_InputProcessor_Boelo.cs" />
-    <Compile Include="IP01_Tally_Boelo.cs" />
-    <Compile Include="IP02_CashIO_Boelo.cs" />
-    <Compile Include="IP02_Checkbook_Boelo.cs">
+    <Compile Include="IP02_Boelo_InputProcessor.cs" />
+    <Compile Include="IP02_Boelo_Tally.cs" />
+    <Compile Include="IP02_Boelo_CashIO.cs" />
+    <Compile Include="IP02_Boelo_Checkbook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IP02_CheckIO_Boelo.cs" />
-    <Compile Include="IP02_DepositIO_Boelo.cs" />
-    <Compile Include="IP02_InputForm_Boelo.cs">
+    <Compile Include="IP02_Boelo_CheckIO.cs" />
+    <Compile Include="IP02_Boelo_DepositIO.cs" />
+    <Compile Include="IP02_Boelo_InputForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IP02_OutputGUI_Boelo.cs">
+    <Compile Include="IP02_Boelo_OutputGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IP02_TransactionsIO_Boelo.cs" />
     <Compile Include="OutputGUI.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunEngine.cs" />
-    <Compile Include="Selector.cs" />
-    <EmbeddedResource Include="IP02_Checkbook_Boelo.resx">
-      <DependentUpon>IP02_Checkbook_Boelo.cs</DependentUpon>
+    <Compile Include="IP02_Boelo_RunEngine.cs" />
+    <Compile Include="IP02_Boelo_Selector.cs" />
+    <EmbeddedResource Include="IP02_Boelo_Checkbook.resx">
+      <DependentUpon>IP02_Boelo_Checkbook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IP02_InputForm_Boelo.resx">
-      <DependentUpon>IP02_InputForm_Boelo.cs</DependentUpon>
+    <EmbeddedResource Include="IP02_Boelo_InputForm.resx">
+      <DependentUpon>IP02_Boelo_InputForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IP02_OutputGUI_Boelo.resx">
-      <DependentUpon>IP02_OutputGUI_Boelo.cs</DependentUpon>
+    <EmbeddedResource Include="IP02_Boelo_OutputGUI.resx">
+      <DependentUpon>IP02_Boelo_OutputGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

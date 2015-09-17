@@ -4,7 +4,7 @@ using FileHelpers;
 namespace IP02
 {
     [DelimitedRecord(",")]
-    public class IP02_DepositIO_Boelo : IP02_TransactionsIO_Boelo
+    public class IP02_Boelo_DepositIO : IP02_TransactionsIO_Boelo
     {
         public string checkType = "DEPOSIT";
 

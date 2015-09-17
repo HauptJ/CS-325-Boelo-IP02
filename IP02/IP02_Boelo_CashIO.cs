@@ -4,7 +4,7 @@ using FileHelpers;
 namespace IP02
 {
     [DelimitedRecord(",")]
-    public class IP02_CashIO_Boelo : IP02_TransactionsIO_Boelo
+    public class IP02_Boelo_CashIO : IP02_TransactionsIO_Boelo
     {
         public string checkType = "CASH";
 

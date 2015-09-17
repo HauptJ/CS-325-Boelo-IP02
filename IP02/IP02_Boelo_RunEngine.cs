@@ -5,12 +5,12 @@ using System.IO;
 using System.Windows.Forms;
 
 namespace IP02 {
-    public class RunEngine
+    public class IP02_Boelo_RunEngine
     {
 
         //public string fileName;
 
-        Selector CustomSelector = new Selector();
+        IP02_Boelo_Selector CustomSelector = new IP02_Boelo_Selector();
 
         public double readBalance(string file)
         {
@@ -60,9 +60,9 @@ namespace IP02 {
 
         public void readCSV(string fileName, string info)
         {
-            var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
-                typeof(IP02_CheckIO_Boelo),
-                typeof(IP02_DepositIO_Boelo));
+            var engine = new MultiRecordEngine(typeof(IP02_Boelo_CashIO),
+                typeof(IP02_Boelo_CheckIO),
+                typeof(IP02_Boelo_DepositIO));
 
             engine.RecordSelector = new RecordTypeSelector(CustomSelector.CustomSelector);
 

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IP02
 {
-    class IP01_InputProcessor_Boelo
+    class IP02_Boelo_InputProcessor
     {
         private long wholeNumber; 
         private string decNum;

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IP02
 {
-    public class IP02_Checkbook_Boelo : Form
+    public class IP02_Boelo_Checkbook : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -203,7 +203,7 @@ namespace IP02
         private bool existing;
 
 
-        public IP02_Checkbook_Boelo()
+        public IP02_Boelo_Checkbook()
         {
             InitializeComponent();
         }

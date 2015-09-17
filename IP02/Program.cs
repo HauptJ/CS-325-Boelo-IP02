@@ -23,20 +23,20 @@ namespace IP02
             //Application.SetCompatibleTextRenderingDefault(false);
 
             // Creating new tally.
-            IP01_Tally_Boelo CheckTally = new IP01_Tally_Boelo();
+            IP02_Boelo_Tally CheckTally = new IP02_Boelo_Tally();
 
             //CSV file name
             string fileName;
             
             // Creating and running checkbook input form.
-            IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
+            IP02_Boelo_Checkbook checkBook = new IP02_Boelo_Checkbook();
             Application.Run(checkBook);
 
             //creates and sets the balance from the form
             double balance = checkBook.getBalance();
 
             // create new engine
-            var csvRead = new RunEngine();
+            var csvRead = new IP02_Boelo_RunEngine();
 
             //set fileName
             fileName = checkBook.getCheckbook();
@@ -67,7 +67,7 @@ namespace IP02
             do
             {
                 IP02_TransactionsIO_Boelo tra;
-                IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
+                IP02_Boelo_InputForm InForm = new IP02_Boelo_InputForm(); 
                 InForm.showForm();
                 
 
@@ -119,7 +119,7 @@ namespace IP02
                 // InForm.getMemo()
 
                 // Creates the input processor
-                IP01_InputProcessor_Boelo proc = new IP01_InputProcessor_Boelo();
+                IP02_Boelo_InputProcessor proc = new IP02_Boelo_InputProcessor();
 
                 // This method converts the getAmount into the string so the decimal and the whole number can be evaluated
                 proc.Parse(InForm.getAmount());

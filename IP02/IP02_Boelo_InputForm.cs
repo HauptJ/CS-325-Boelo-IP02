@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace IP02
 {
-    public class IP02_InputForm_Boelo : Form
+    public class IP02_Boelo_InputForm : Form
     {
         /// <summary>
         /// Required designer variable.
@@ -219,7 +219,7 @@ namespace IP02
         private double checkAmount;
         private string selectedType = "";
 
-        public IP02_InputForm_Boelo()
+        public IP02_Boelo_InputForm()
         {
             InitializeComponent();
         }
