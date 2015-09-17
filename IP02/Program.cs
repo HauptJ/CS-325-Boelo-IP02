@@ -29,7 +29,7 @@ namespace IP02
             string fileName;
 
             //set fileName
-            fileName = "checkbook.csv";
+            fileName = "checkbook.cbk";
 
             // Create a while flag for entering more than one check.
             bool Rep;
@@ -40,11 +40,20 @@ namespace IP02
             //DEBUG
             //test CSV
             //var csvTest = new RunEngine();
+            //csvTest.createNewFile(fileName);
             //csvTest.test();
+
+            //DEBUG
+            //create new file
+
 
             // Read CSV
             var csvRead = new RunEngine();
+            //csvRead.createNewFile("test.cbk");
             csvRead.readCSV(fileName);
+
+            //create new CSV
+            //CsvEngine.DataTableToCsv(csvRead, fileName);
 
             Application.Run(checkBook);
             do

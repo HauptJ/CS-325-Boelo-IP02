@@ -12,6 +12,8 @@ namespace IP02
 
         public double amount;
 
+        //public string transTypePrint;
+
         public string memo;
 
         public double newBalance;

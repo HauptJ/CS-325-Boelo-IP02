@@ -55,14 +55,20 @@ namespace IP02 {
                 /// to Write use:
                 engine.WriteFile(fileName, res);
 
-                /*foreach (var rec in res)
-                    Console.WriteLine(rec.ToString());*/
+                foreach (var rec in res)
+                    Console.WriteLine(rec.ToString());
             }
             catch (FileNotFoundException ex)
             {
                 //write error
                 Console.WriteLine(ex);
             }
+        }
+
+        //create new file
+        public void createNewFile(string fileName)
+        {
+            FileStream fs = File.Create(fileName);
         }
     }
 }
