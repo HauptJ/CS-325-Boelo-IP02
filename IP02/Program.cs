@@ -27,19 +27,18 @@ namespace IP02
 
             //CSV file name
             string fileName;
-            
+
+            //set fileName
+            fileName = "checkbook.cbk";
+
+            // Create a while flag for entering more than one check.
+            bool Rep = true;
+
             // Creating and running input form.
+            
             IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
             Application.Run(checkBook);
-            
-            //set fileName
-            fileName = checkBook.getCheckbook();
 
-            if(!checkBook.isExisting())
-            {
-                var csvTest = new RunEngine();
-                csvTest.createNewFile(fileName);
-            }
             //DEBUG
             //test CSV
             //var csvTest = new RunEngine();
@@ -48,18 +47,16 @@ namespace IP02
 
             //DEBUG
             //create new file
-            //csvTest.createNewFile(fileName);
+
 
             // Read CSV
             var csvRead = new RunEngine();
+            //csvRead.createNewFile("test.cbk");
             csvRead.readCSV(fileName);
 
             //create new CSV
             //CsvEngine.DataTableToCsv(csvRead, fileName);
 
-
-            // Create a while flag for entering more than one check.
-            bool Rep;
             do
             {
                 IP02_TransactionsIO_Boelo tra = new IP02_TransactionsIO_Boelo();
@@ -72,13 +69,28 @@ namespace IP02
                 //MessageBox.Show("Name: " + InForm.getName() + "\nAmount: " + InForm.getAmount() + "\nMemo: " + InForm.getMemo() );
 
                 // Display the check
+
                 
-
-                // increments number of checks
-                CheckTally.incrementNumChecks();
-
-                // sum up new check sum
-                CheckTally.newSum(InForm.getAmount());
+                if (InForm.getSelectedType() == "Check") {
+                    if(InForm.getAmount() > CheckTally.getCheckSum()) {
+                        DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.No)
+                            continue;
+                    }
+                    CheckTally.incrementNumChecks();
+                    CheckTally.newSum(-InForm.getAmount());
+                }
+                else if (InForm.getSelectedType() == "Cash") {
+                    if(InForm.getAmount() > CheckTally.getCheckSum()) {
+                        DialogResult result = MessageBox.Show("This transaction will give you a negative balance. Continue?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.No)
+                            continue;
+                    }
+                    CheckTally.newSum(-InForm.getAmount());
+                }
+                else {
+                    CheckTally.newSum(InForm.getAmount());
+                }
 
                 // These get the vaules from the input form. 
                 // Name is trimmed of whitespace and amount is positive non-zero
@@ -97,7 +109,7 @@ namespace IP02
 
                 // Creates and runs the output gui
                 OutputGUI output = new OutputGUI();
-                if (InForm.viewCheck() == true)
+                if (InForm.getSelectedType() == "Check" && InForm.viewCheck() == true)
                 {
                     output.displayCheck(CheckTally.getNumChecks(), InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
                 }
@@ -106,7 +118,7 @@ namespace IP02
                 // MessageBox.Show("Amount: "+InForm.getAmount()+"\nAmount Text: "+dollarAmountAsTxt);
                 
                 // Creates a message box asking if they want to enter another check.
-                DialogResult dialogResult = MessageBox.Show("Would you like to enter another transaction?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Current balance: " + CheckTally.getCheckSum() + "\nWould you like to enter another transaction?", "Boelo - Intro Project 2 - More Checks", MessageBoxButtons.YesNo);
                 if(dialogResult == DialogResult.Yes)
                 {
                     Rep = true;

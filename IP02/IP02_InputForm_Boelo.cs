@@ -134,7 +134,7 @@ namespace IP02
             this.transType.Items.AddRange(new object[] {
             "Check",
             "Cash",
-            "Deposite"});
+            "Deposit"});
             this.transType.Location = new System.Drawing.Point(82, 94);
             this.transType.Name = "transType";
             this.transType.Size = new System.Drawing.Size(121, 21);
@@ -217,6 +217,7 @@ namespace IP02
         private CheckBox test;
         private Button bExit;
         private double checkAmount;
+        private string selectedType = "";
 
         public IP02_InputForm_Boelo()
         {
@@ -237,18 +238,45 @@ namespace IP02
 
         private void bAccept_Click(object sender, EventArgs e)
         {
-            if(tName.Text.Trim() == "" | tAmount.Value == 0)
-            {
-                MessageBox.Show("Make sure your check has a Name and Amount.");
-                tName.Focus();
+
+            if (transType.Text == "") {
+                MessageBox.Show("Please select a transaction type.");
             }
-            else
-            {
-                checkName = tName.Text.Trim();
-                checkMemo = tMemo.Text;
-                checkAmount = System.Convert.ToDouble(tAmount.Value);
-                
-                this.Close();
+            else if (transType.Text == "Check") {
+                if (tName.Text.Trim() == "" | tAmount.Value == 0) {
+                    MessageBox.Show("Make sure your check has a Name and Amount.");
+                    tName.Focus();
+                }
+                else {
+                    selectedType = "Check";
+                    checkName = tName.Text.Trim();
+                    checkMemo = tMemo.Text;
+                    checkAmount = System.Convert.ToDouble(tAmount.Value);
+
+
+
+                    this.Close();
+                }
+            }
+            else if (transType.Text == "Cash") {
+                if (tAmount.Value == 0) {
+                    MessageBox.Show("Make sure you enter an amount.");
+                }
+                else {
+                    selectedType = "Cash";
+                    checkAmount = System.Convert.ToDouble(tAmount.Value);
+                    this.Close();
+                }
+            }
+            else {
+                if (tAmount.Value == 0) {
+                    MessageBox.Show("Make sure you enter an amount to deposit.");
+                }
+                else {
+                    selectedType = "Deposit";
+                    checkAmount = System.Convert.ToDouble(tAmount.Value);
+                    this.Close();
+                }
             }
         }
 
@@ -266,6 +294,10 @@ namespace IP02
         public string getMemo()
         {
             return checkMemo;
+        }
+
+        public string getSelectedType() {
+            return selectedType;
         }
 
         private void transType_SelectedIndexChanged(object sender, EventArgs e)
