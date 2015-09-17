@@ -38,7 +38,7 @@ namespace IP02 {
             }
         }
 
-        public void readCSV(string fileName)
+        public void readCSV(string fileName, string hi)
         {
             var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
                 typeof(IP02_CheckIO_Boelo),
@@ -51,13 +51,26 @@ namespace IP02 {
 
                 Console.WriteLine("File Opened");
                 //input file
+                //using(StreamWriter test = File.AppendText(fileName))
+                //{
+                //    test.WriteLine();
+                //}
                 var res = engine.ReadFile(fileName);
-
+               
                 /// to Write use:
                 engine.WriteFile(fileName, res);
-
+                MessageBox.Show(res.ToString());
                 foreach (var rec in res)
+                {
                     Console.WriteLine(rec.ToString());
+                    MessageBox.Show(rec.ToString());
+                }
+                using(StreamWriter test = File.AppendText(fileName))
+                {
+                    
+                    test.Write(hi);
+                }
+
             }
             catch (FileNotFoundException ex)
             {
@@ -67,10 +80,14 @@ namespace IP02 {
         }
 
         //create new file
-        public void createNewFile(string fileName)
+        public void createNewFile(string fileName,double bal)
         {
             FileStream fs = File.Create(fileName);
-            fs.Close(); 
+            fs.Close();
+            //using (StreamWriter test = File.AppendText(fileName))
+            //{
+            //    test.WriteLine(bal);
+            //}
         }
     }
 }
