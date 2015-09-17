@@ -210,7 +210,6 @@ namespace IP02
             if (pathBox.Text.Trim() == "")
             {
                 MessageBox.Show("Please Choose wether to Create or open a checkbook.");
-                //.Focus();
             }
             else
             {
