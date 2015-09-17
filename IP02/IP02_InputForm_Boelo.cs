@@ -49,6 +49,7 @@ namespace IP02
             this.transType = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.CheckBox();
+            this.bExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tAmount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,12 +161,26 @@ namespace IP02
             this.test.UseVisualStyleBackColor = true;
             this.test.Visible = false;
             // 
+            // bExit
+            // 
+            this.bExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.bExit.Location = new System.Drawing.Point(60, 155);
+            this.bExit.Name = "bExit";
+            this.bExit.Size = new System.Drawing.Size(75, 23);
+            this.bExit.TabIndex = 8;
+            this.bExit.Text = "Exit";
+            this.bExit.UseVisualStyleBackColor = true;
+            this.bExit.Click += new System.EventHandler(this.bExit_Click);
+            // 
             // IP02_InputForm_Boelo
             // 
             this.AcceptButton = this.bAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.bExit;
             this.ClientSize = new System.Drawing.Size(315, 190);
+            this.ControlBox = false;
+            this.Controls.Add(this.bExit);
             this.Controls.Add(this.test);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.transType);
@@ -200,6 +215,7 @@ namespace IP02
         private ComboBox transType;
         private Label label4;
         private CheckBox test;
+        private Button bExit;
         private double checkAmount;
 
         public IP02_InputForm_Boelo()
@@ -266,6 +282,10 @@ namespace IP02
         public double getAmount()
         {
             return checkAmount;
+        }
+
+        private void bExit_Click(object sender, EventArgs e) {
+            Environment.Exit(0);
         }
 
         public bool viewCheck()
