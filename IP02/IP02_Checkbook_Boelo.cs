@@ -65,7 +65,7 @@ namespace IP02
             this.submit.Location = new System.Drawing.Point(335, 103);
             this.submit.Name = "submit";
             this.submit.Size = new System.Drawing.Size(75, 23);
-            this.submit.TabIndex = 0;
+            this.submit.TabIndex = 5;
             this.submit.Text = "Submit";
             this.submit.UseVisualStyleBackColor = true;
             this.submit.Click += new System.EventHandler(this.submit_Click);
@@ -90,14 +90,14 @@ namespace IP02
             0});
             this.balanceBox.Name = "balanceBox";
             this.balanceBox.Size = new System.Drawing.Size(140, 20);
-            this.balanceBox.TabIndex = 9;
+            this.balanceBox.TabIndex = 4;
             // 
             // bExit
             // 
             this.bExit.Location = new System.Drawing.Point(173, 103);
             this.bExit.Name = "bExit";
             this.bExit.Size = new System.Drawing.Size(75, 23);
-            this.bExit.TabIndex = 10;
+            this.bExit.TabIndex = 7;
             this.bExit.Text = "Exit";
             this.bExit.UseVisualStyleBackColor = true;
             this.bExit.Click += new System.EventHandler(this.bExit_Click);
@@ -114,7 +114,7 @@ namespace IP02
             this.bBrowse.Location = new System.Drawing.Point(335, 33);
             this.bBrowse.Name = "bBrowse";
             this.bBrowse.Size = new System.Drawing.Size(75, 23);
-            this.bBrowse.TabIndex = 4;
+            this.bBrowse.TabIndex = 2;
             this.bBrowse.Text = "Browse";
             this.bBrowse.UseVisualStyleBackColor = true;
             this.bBrowse.Click += new System.EventHandler(this.bBrowse_Click);
@@ -126,7 +126,7 @@ namespace IP02
             this.radioButton1.Location = new System.Drawing.Point(12, 12);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(106, 17);
-            this.radioButton1.TabIndex = 5;
+            this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "New CheckBook";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@ namespace IP02
             this.radioButton2.Location = new System.Drawing.Point(124, 12);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(119, 17);
-            this.radioButton2.TabIndex = 11;
+            this.radioButton2.TabIndex = 1;
             this.radioButton2.Text = "Existing Checkbook";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
@@ -148,7 +148,7 @@ namespace IP02
             this.bClear.Location = new System.Drawing.Point(254, 103);
             this.bClear.Name = "bClear";
             this.bClear.Size = new System.Drawing.Size(75, 23);
-            this.bClear.TabIndex = 12;
+            this.bClear.TabIndex = 6;
             this.bClear.Text = "Clear";
             this.bClear.UseVisualStyleBackColor = true;
             this.bClear.Click += new System.EventHandler(this.bClear_Click);
