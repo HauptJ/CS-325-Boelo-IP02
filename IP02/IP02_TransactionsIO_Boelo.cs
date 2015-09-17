@@ -31,5 +31,10 @@ namespace IP02
             memo = mem;
             newBalance = nb;
         }
+
+        public string getFormattedTransaction()
+        {
+            return transDate + "," + transType + "," + amount + "," + memo + "," + newBalance;
+        }
     }
 }
