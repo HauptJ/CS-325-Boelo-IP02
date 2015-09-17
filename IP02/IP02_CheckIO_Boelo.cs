@@ -13,7 +13,7 @@ namespace IP02
 
         public override string ToString()
         {
-            return "Check," + transDate + "," + checkNbr + "," + amount + "," + toField + "," + memo + "," + newBalance + " \n ";
+            return "CHECK \n" + transDate + "," + checkNbr + "," + amount + "," + toField + "," + memo + "," + newBalance + " \n ";
         }
     }
 }
