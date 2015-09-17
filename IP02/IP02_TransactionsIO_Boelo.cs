@@ -12,7 +12,7 @@ namespace IP02
 
         public double amount;
 
-        //public string transTypePrint;
+        public string transTypePrint;
 
         public string memo;
 
@@ -23,18 +23,19 @@ namespace IP02
 
         }
 
-        public IP02_TransactionsIO_Boelo(string tt, string td, double amt, string mem, double nb)
+        public IP02_TransactionsIO_Boelo(string tt, string td, double amt, string ttp, string mem, double nb)
         {
             transType = tt;
             transDate = td;
             amount = amt;
+            transTypePrint = ttp;
             memo = mem;
             newBalance = nb;
         }
 
         public string getFormattedTransaction()
         {
-            return transDate + "," + transType + "," + amount + "," + memo + "," + newBalance;
+            return transDate + "," + transType + "," + amount + "," + transTypePrint + "," + memo + "," + newBalance;
         }
     }
 }
