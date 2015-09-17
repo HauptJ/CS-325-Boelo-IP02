@@ -54,11 +54,14 @@ namespace IP02
             // 
             // openFileDialog1
             // 
+            this.openFileDialog1.DefaultExt = "cbk";
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Checkbook Files| *.cbk|All Files|*.*";
             // 
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "cbk";
+            this.saveFileDialog1.Filter = "Checkbook Files| *.cbk|All Files|*.*";
             // 
             // submit
             // 
