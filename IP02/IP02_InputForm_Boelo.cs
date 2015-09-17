@@ -128,6 +128,7 @@ namespace IP02
             // 
             // transType
             // 
+            this.transType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.transType.FormattingEnabled = true;
             this.transType.Items.AddRange(new object[] {
             "Check",
@@ -137,7 +138,6 @@ namespace IP02
             this.transType.Name = "transType";
             this.transType.Size = new System.Drawing.Size(121, 21);
             this.transType.TabIndex = 5;
-            this.transType.Text = "Select Transaction";
             this.transType.SelectedIndexChanged += new System.EventHandler(this.transType_SelectedIndexChanged);
             // 
             // label4
