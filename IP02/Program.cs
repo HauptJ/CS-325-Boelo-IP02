@@ -35,12 +35,20 @@ namespace IP02
             //creates and sets the balance from the form
             double balance = checkBook.getBalance();
 
+            // create new engine
+            var csvRead = new RunEngine();
+
             //set fileName
             fileName = checkBook.getCheckbook();
-            if (!checkBook.isExisting())
+            if (checkBook.isExisting())
             {
-                var csvTest = new RunEngine();
-                csvTest.createNewFile(fileName, balance);
+                balance = csvRead.readBalance(fileName);
+                CheckTally.setNumChecks( csvRead.readCheckNum(fileName) );
+            }
+            else
+            {
+                csvRead.createNewFile(fileName, balance);
+                
             }
 
             //DEBUG
@@ -61,11 +69,7 @@ namespace IP02
                 IP02_TransactionsIO_Boelo tra;
                 IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
                 InForm.showForm();
-                var csvRead = new RunEngine();
-                if (checkBook.isExisting())
-                {
-                    balance = csvRead.read(fileName);
-                }
+                
 
                 // Code doesn't advance until the user successfully enters a check. 
                 // So beyond this point, assume a check has been entered successfully. 
@@ -87,10 +91,10 @@ namespace IP02
                         if (result == DialogResult.No)
                             continue;
                     }
-                    CheckTally.incrementNumChecks();
                     CheckTally.newSum(InForm.getAmount());
                     balance -= InForm.getAmount();
-                    tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
+                    tra = new IP02_TransactionsIO_Boelo(date, CheckTally.getNumChecks().ToString(), InForm.getAmount(), InForm.getName(), InForm.getMemo(), balance);
+                    CheckTally.incrementNumChecks();
                 }
                 else if (InForm.getSelectedType() == "CASH") {
                     if(InForm.getAmount() > balance) {
@@ -127,7 +131,7 @@ namespace IP02
                 OutputGUI output = new OutputGUI();
                 if (InForm.getSelectedType() == "CHECK" && InForm.viewCheck() == true)
                 {
-                    output.displayCheck(CheckTally.getNumChecks(), InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
+                    output.displayCheck(CheckTally.getNumChecks()-1, InForm.getName(), InForm.getAmount(), dollarAmountAsTxt, InForm.getMemo(), CheckTally.getNumChecksWrote(), CheckTally.getCheckSum());
                 }
 
                 // debug for amount to string

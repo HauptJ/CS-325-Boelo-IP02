@@ -9,7 +9,7 @@ namespace IP02
     class IP01_Tally_Boelo
     {
         // values to be tracked by the tally component
-        private int numChecks = 3002; //set check counter to initial value of 3002
+        private int numChecks = 1001; //set check counter to initial value of 1001
 
         private int checksWrote = 0;
 
@@ -25,6 +25,11 @@ namespace IP02
             numChecks++;
 
             checksWrote++;
+        }
+
+        public void setNumChecks(int val)
+        {
+            numChecks = val;
         }
 
         //adds up sum of checks

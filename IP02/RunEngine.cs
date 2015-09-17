@@ -12,7 +12,7 @@ namespace IP02 {
 
         Selector CustomSelector = new Selector();
 
-        public double read(string file)
+        public double readBalance(string file)
         {
             string test = "";
             string[] index = null;
@@ -27,10 +27,35 @@ namespace IP02 {
             }
 
             //MessageBox.Show(x.ToString());
-            MessageBox.Show(index[5]);
+            //MessageBox.Show(index[5]);
             double hi = Convert.ToDouble(index[5]);
             read.Close();
             return hi;
+        }
+
+        public int readCheckNum(string file)
+        {
+            string test = "";
+            string[] index = null;
+            int x = 1;
+            int last = 1001;
+            StreamReader read = new StreamReader(file);
+            while (!read.EndOfStream)
+            {
+                x++;
+                test = read.ReadLine();
+                index = test.Split(',');
+                if(index[1] != "DEPOSIT" & index[1] != "CASH")
+                {
+                    last = Convert.ToInt32(index[1]);
+                }
+            }
+
+            //MessageBox.Show(x.ToString());
+            //MessageBox.Show(index[1]);
+            int hi = Convert.ToInt32(index[1]);
+            read.Close();
+            return hi + 1;
         }
 
         public void readCSV(string fileName, string info)
