@@ -220,10 +220,11 @@ namespace IP02
         private OpenFileDialog openFileDialog1;
         private Button bBrowseSave;
         private SaveFileDialog saveFileDialog1;
+        private Button bExit;
 
         private double startingBalance;
-        private Button bExit;
         private string checkbookName;
+        private bool existing;
 
 
         public IP02_Checkbook_Boelo()
@@ -271,6 +272,9 @@ namespace IP02
             openFileDialog1.ShowDialog();
             checkbookName = openFileDialog1.FileName;
             exisitingCheckbook.Text = checkbookName;
+            exisitingCheckbook.Enabled = true;
+            newCheckbook.Enabled = false;
+            existing = true;
         }
 
         private void bBrowseSave_Click(object sender, EventArgs e)
@@ -278,11 +282,19 @@ namespace IP02
             saveFileDialog1.ShowDialog();
             checkbookName = saveFileDialog1.FileName;
             newCheckbook.Text = checkbookName;
+            newCheckbook.Enabled = true;
+            exisitingCheckbook.Enabled = false;
+            existing = false;
         }
 
         private void bExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        public bool isExisting()
+        {
+            return existing;
         }
     }
 }
