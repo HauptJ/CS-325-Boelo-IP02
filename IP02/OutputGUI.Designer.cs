@@ -232,7 +232,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(88, 16);
             this.label20.TabIndex = 20;
-            this.label20.Text = "Intro Project 1";
+            this.label20.Text = "Intro Project 2";
             // 
             // totalsLabel
             // 
@@ -268,7 +268,7 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.checkNumTopLabel);
             this.Name = "OutputGUI";
-            this.Text = "Boelo - Intro Project 1";
+            this.Text = "Boelo - Intro Project 2";
             this.Load += new System.EventHandler(this.OutputGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
