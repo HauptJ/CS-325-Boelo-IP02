@@ -60,7 +60,7 @@ namespace IP02
             //TODO CheckSum.newSum(initialAmount); 
             do
             {
-                IP02_TransactionsIO_Boelo tra = new IP02_TransactionsIO_Boelo();
+                IP02_TransactionsIO_Boelo tra;
                 IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
                 InForm.showForm();
                 // Code doesn't advance until the user successfully enters a check. 
@@ -85,11 +85,7 @@ namespace IP02
                     }
                     CheckTally.incrementNumChecks();
                     CheckTally.newSum(-InForm.getAmount());
-                    tra.amount = InForm.getAmount();
-                    tra.memo = InForm.getMemo();
-                    tra.newBalance = CheckTally.getCheckSum();
-                    tra.transDate = date;
-                    tra.transType = "CHECK";
+                    tra = new IP02_TransactionsIO_Boelo(InForm.getSelectedType(), date, InForm.getAmount(), InForm.getMemo(), CheckTally.getCheckSum());
                 }
                 else if (InForm.getSelectedType() == "Cash") {
                     if(InForm.getAmount() > CheckTally.getCheckSum()) {
@@ -98,19 +94,11 @@ namespace IP02
                             continue;
                     }
                     CheckTally.newSum(-InForm.getAmount());
-                    tra.amount = InForm.getAmount();
-                    tra.memo = InForm.getMemo();
-                    tra.newBalance = CheckTally.getCheckSum();
-                    tra.transDate = date;
-                    tra.transType = "CASH";
+                    tra = new IP02_TransactionsIO_Boelo(InForm.getSelectedType(), date, InForm.getAmount(), InForm.getMemo(), CheckTally.getCheckSum());
                 }
                 else {
                     CheckTally.newSum(InForm.getAmount());
-                    tra.amount = InForm.getAmount();
-                    tra.memo = InForm.getMemo();
-                    tra.newBalance = CheckTally.getCheckSum();
-                    tra.transDate = date;
-                    tra.transType = "DEPOSIT";
+                    tra = new IP02_TransactionsIO_Boelo(InForm.getSelectedType(), date, InForm.getAmount(), InForm.getMemo(), CheckTally.getCheckSum());
                 }
 
                 // These get the vaules from the input form. 
