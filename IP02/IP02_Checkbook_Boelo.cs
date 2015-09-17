@@ -210,7 +210,7 @@ namespace IP02
 
         private void submit_Click(object sender, EventArgs e)
         {
-            if (exisitingCheckbook.Text.Trim() == "" & (newCheckbook.Text.Trim() == "" | startingValue.Value == 0))
+            if (exisitingCheckbook.Text.Trim() == "" & newCheckbook.Text.Trim() == "")
             {
                 MessageBox.Show("Please Choose wether to Create or open a checkbook.");
                 //.Focus();
