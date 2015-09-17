@@ -35,7 +35,7 @@ namespace IP02
 
         public string getFormattedTransaction()
         {
-            return transType+":"+Environment.NewLine+transDate + "," + transType + "," + amount + "," + transTypePrint + "," + memo + "," + newBalance;
+            return transDate + "," + transType + "," + amount + "," + transTypePrint + "," + memo + "," + newBalance;
         }
     }
 }

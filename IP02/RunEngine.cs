@@ -55,20 +55,21 @@ namespace IP02 {
                 //{
                 //    test.WriteLine();
                 //}
-                var res = engine.ReadFile(fileName);
-               
-                /// to Write use:
-                engine.WriteFile(fileName, res);
-                MessageBox.Show(res.ToString());
-                foreach (var rec in res)
-                {
-                    Console.WriteLine(rec.ToString());
-                    MessageBox.Show(rec.ToString());
-                }
-                using(StreamWriter test = File.AppendText(fileName))
+                //var res = engine.ReadFile(fileName);
+
+                ///// to Write use:
+                //engine.WriteFile(fileName, res);
+                //MessageBox.Show(res.ToString());
+                //foreach (var rec in res)
+                //{
+                //    Console.WriteLine(rec.ToString());
+
+                //    MessageBox.Show(rec.ToString());
+                //}
+                using (StreamWriter test = File.AppendText(fileName))
                 {
                     
-                    test.Write(info);
+                    test.WriteLine(info.ToString());
                 }
 
             }

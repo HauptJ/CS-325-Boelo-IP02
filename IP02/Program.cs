@@ -29,7 +29,6 @@ namespace IP02
             string fileName;
 
             //set fileName
-            fileName = "checkbook.cbk";
 
             // Create a while flag for entering more than one check.
             bool Rep = true;
@@ -39,6 +38,12 @@ namespace IP02
             IP02_Checkbook_Boelo checkBook = new IP02_Checkbook_Boelo();
             Application.Run(checkBook);
 
+            fileName = checkBook.getCheckbook();
+            if (!checkBook.isExisting())
+            {
+                var csvTest = new RunEngine();
+                csvTest.createNewFile(fileName, checkBook.getBalance());
+            }
             //DEBUG
             //test CSV
             //var csvTest = new RunEngine();
@@ -101,9 +106,7 @@ namespace IP02
                 }
 
                 var csvRead = new RunEngine();
-                //csvRead.createNewFile("test.cbk");
-                csvRead.readCSV(fileName,tra.ToString());
-
+                csvRead.readCSV(fileName, tra.getFormattedTransaction());
                 // These get the vaules from the input form. 
                 // Name is trimmed of whitespace and amount is positive non-zero
                 // InForm.getName()
