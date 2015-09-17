@@ -11,33 +11,28 @@ namespace IP02 {
         //public string fileName;
 
         Selector CustomSelector = new Selector();
-        public void test(string fileName)
+
+        public double read(string file)
         {
-            var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
-                typeof(IP02_CheckIO_Boelo),
-                typeof(IP02_DepositIO_Boelo));
-
-            engine.RecordSelector = new RecordTypeSelector(CustomSelector.CustomSelector);
-
-            try {
-
-                Console.WriteLine("File Opened");
-                //input file
-                var res = engine.ReadFile(fileName);
-
-                /// to Write use:
-                engine.WriteFile(fileName, res);
-
-                foreach (var rec in res)
-                    Console.WriteLine(rec.ToString());
-            }
-            catch (FileNotFoundException ex)
-            {
-                //write error
-                Console.WriteLine(ex);
-            }
+            string test = "";
+            string[] index = null;
+            int x = 1;
+            StreamReader read = new StreamReader(file);
+            
+               
+                while(!read.EndOfStream)
+                {
+                    x++;
+                    test = read.ReadLine();
+                    index = test.Split(',');
+                    
+                }
+            MessageBox.Show(x.ToString());
+            MessageBox.Show(index[5]);
+            double hi = Convert.ToDouble(index[5]);
+            read.Close();
+            return hi;
         }
-
         public void readCSV(string fileName, string info)
         {
             var engine = new MultiRecordEngine(typeof(IP02_CashIO_Boelo),
@@ -50,12 +45,8 @@ namespace IP02 {
             {
 
                 Console.WriteLine("File Opened");
-                //input file
-                //using(StreamWriter test = File.AppendText(fileName))
-                //{
-                //    test.WriteLine();
-                //}
-                //var res = engine.ReadFile(fileName);
+
+                //var res = engine.(fileName);
 
                 ///// to Write use:
                 //engine.WriteFile(fileName, res);
@@ -66,8 +57,11 @@ namespace IP02 {
 
                 //    MessageBox.Show(rec.ToString());
                 //}
+
+
                 using (StreamWriter test = File.AppendText(fileName))
                 {
+
                     test.WriteLine(info.ToString());
                 }
 
@@ -84,24 +78,10 @@ namespace IP02 {
         {
             FileStream fs = File.Create(fileName);
             fs.Close();
-            try
-            {
-                using (StreamWriter test = File.AppendText(fileName))
-                {
-                    test.WriteLine("00/00/0000,DEPOSIT,"+bal+",DEPOSIT,Initial Balance,"+bal+"\n");
-                }
-            }
-            catch (FileNotFoundException ex)
-            {
-                //write error
-                Console.WriteLine(ex);
-            }
-        }
-
-        public double getExistingBalance()
-        {
-
-            return 0;
+            //using (StreamWriter test = File.AppendText(fileName))
+            //{
+            //    test.WriteLine(bal);
+            //}
         }
     }
 }
