@@ -242,13 +242,13 @@ namespace IP02
             if (transType.Text == "") {
                 MessageBox.Show("Please select a transaction type.");
             }
-            else if (transType.Text == "Check") {
+            else if (transType.Text == "CHECK") {
                 if (tName.Text.Trim() == "" | tAmount.Value == 0) {
                     MessageBox.Show("Make sure your check has a Name and Amount.");
                     tName.Focus();
                 }
                 else {
-                    selectedType = "Check";
+                    selectedType = "CHECK";
                     checkName = tName.Text.Trim();
                     checkMemo = tMemo.Text;
                     checkAmount = System.Convert.ToDouble(tAmount.Value);
@@ -258,12 +258,12 @@ namespace IP02
                     this.Close();
                 }
             }
-            else if (transType.Text == "Cash") {
+            else if (transType.Text == "CASH") {
                 if (tAmount.Value == 0) {
                     MessageBox.Show("Make sure you enter an amount.");
                 }
                 else {
-                    selectedType = "Cash";
+                    selectedType = "CASH";
                     checkAmount = System.Convert.ToDouble(tAmount.Value);
                     this.Close();
                 }
@@ -273,7 +273,7 @@ namespace IP02
                     MessageBox.Show("Make sure you enter an amount to deposit.");
                 }
                 else {
-                    selectedType = "Deposit";
+                    selectedType = "DEPOSIT";
                     checkAmount = System.Convert.ToDouble(tAmount.Value);
                     this.Close();
                 }
@@ -302,7 +302,7 @@ namespace IP02
 
         private void transType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (transType.Text != "Check")
+            if (transType.Text != "CHECK")
             {
                 test.Visible = false;
             }else
