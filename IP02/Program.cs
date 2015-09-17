@@ -61,6 +61,12 @@ namespace IP02
                 IP02_TransactionsIO_Boelo tra;
                 IP02_InputForm_Boelo InForm = new IP02_InputForm_Boelo(); 
                 InForm.showForm();
+                var csvRead = new RunEngine();
+                if (checkBook.isExisting())
+                {
+                    balance = csvRead.read(fileName);
+                }
+
                 // Code doesn't advance until the user successfully enters a check. 
                 // So beyond this point, assume a check has been entered successfully. 
 
@@ -100,7 +106,7 @@ namespace IP02
                     tra = new IP02_TransactionsIO_Boelo(date, InForm.getSelectedType(), InForm.getAmount(), InForm.getSelectedType(), InForm.getMemo(), balance);
                 }
 
-                var csvRead = new RunEngine();
+                
                 csvRead.readCSV(fileName, tra.getFormattedTransaction());
                 // These get the vaules from the input form. 
                 // Name is trimmed of whitespace and amount is positive non-zero
